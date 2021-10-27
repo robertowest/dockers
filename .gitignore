@@ -1,0 +1,9 @@
+/idiomagic/*
+/mariadb/*
+/php/*
+/postgres/*
+
+*/mysql/data/*
+
+*.zip
+*.txt

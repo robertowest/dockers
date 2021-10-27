@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+    nginx:
+        build: ./nginx
+        image: nginx:1.21.3-alpine
+        container_name: "multi-nginx"
+        ports:
+          - "80:80"
+        # dependencia primero ejecuta php
+        depends_on:
+          - "php"
+        # volumen de datos
+        volumes:
+          # asigne el directorio host./conf.d al directorio contenedor /etc/nginx/conf.d
+          - "$PWD/nginx/conf.d:/etc/nginx/conf.d"
+          - "$PWD/html:/usr/share/nginx/html"
+        networks:
+          - app_net
+
+    php:
+        build: ./php
+        image: php:7.4-fpm
+        container_name: "multi-php"
+        ports:
+          - "9000:9000"
+        volumes:
+          - "$PWD/html:/var/www/html"
+        networks:
+          - app_net
+
+    mysql:
+        build: ./mysql
+        image: mariadb:10.6.4
+        container_name: "multi-mysql"
+        ports:
+          - "3306:3306"
+        environment:
+          - MARIADB_ROOT_PASSWORD=roberto
+        volumes:
+          - "$PWD/mysql/data:/var/lib/mysql"
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        networks:
+            app_net:
+                # IP de subred fija, el segmento de red debe estar en la subred 10.10. *. *
+                ipv4_address: 10.10.10.1
+
+networks:
+    # Configurar la red de Docker
+    app_net:
+        driver: bridge
+        ipam:
+            config:
+                # Subred
+                - subnet: 10.10.0.0/16
