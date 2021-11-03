@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  nginx:
+    build: ./nginx
+    container_name: "web-nginx"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - $PWD/nginx/conf.d:/etc/nginx/conf.d
+      - $PWD/../html:/usr/share/nginx/html
+    links:
+      - php
+
+  php:
+    build: ./php
+    container_name: "web-php"
+    ports:
+      - "9000:9000"
+    volumes:
+      # debe ser la misma que utiliza el root de nginx
+      - $PWD/../html:/usr/share/nginx/html
+    environment:
+      XDEBUG_MODE: develop,debug
+      # XDEBUG_CONFIG: "mode=develop,debug remote_host=host.docker.internal remote_enable=1"
+      # XDEBUG_ENABLED: 1
+      # XDEBUG_REMOTE_AUTOSTART: 1
+      # XDEBUG_MAXNESTING_LEVEL: 1000
+      # XDEBUG_REMOTE_CONNECT_BACK: 1
+      # XDEBUG_REMOTE_HOST: host.docker.internal
+      # PHP_IDE_CONFIG: serverName=localhost
+
+  mysql:
+    build: ./mysql
+    container_name: "web-mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      - MARIADB_ROOT_PASSWORD=roberto
+    volumes:
+      - "$PWD/mysql/data:/var/lib/mysql"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci

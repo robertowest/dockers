@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `e`.`id` AS `empresa_id`,`e`.`nombre` AS `empresa`,`e`.`cuit` AS `cuit`,`per1`.`apellido` AS `comercial`,`c`.`texto` AS `comunicacion`,`p`.`nombre` AS `nombre`,`p`.`apellido` AS `apellido`,`c2`.`texto` AS `comunicacion_contacto` from (((((((((`lubre_dj`.`empresa` `e` left join `lubre_dj`.`comercial` `com1` on(`com1`.`id` = `e`.`comercial_id`)) left join `lubre_dj`.`persona` `per1` on(`per1`.`id` = `com1`.`persona_id`)) left join `lubre_dj`.`empresa_comunicaciones` `ec` on(`ec`.`empresa_id` = `e`.`id`)) left join `lubre_dj`.`comunicacion` `c` on(`c`.`id` = `ec`.`comunicacion_id`)) left join `lubre_dj`.`empresa_actividades` `ea` on(`ea`.`empresa_id` = `e`.`id`)) left join `lubre_dj`.`empresa_actividad_contactos` `eac` on(`eac`.`empresa_actividad_id` = `ea`.`id`)) left join `lubre_dj`.`persona` `p` on(`p`.`id` = `eac`.`persona_id`)) left join `lubre_dj`.`persona_comunicaciones` `pc` on(`pc`.`persona_id` = `p`.`id`)) left join `lubre_dj`.`comunicacion` `c2` on(`c2`.`id` = `pc`.`comunicacion_id`))
+md5=2bf3cd0ca441279a293d944879b4d6db
+updatable=0
+algorithm=0
+definer_user=root
+definer_host=%
+suid=2
+with_check_option=0
+timestamp=2021-06-23 14:07:10
+create-version=2
+source=select `e`.`id` AS `empresa_id`,`e`.`nombre` AS `empresa`,`e`.`cuit` AS `cuit`,`per1`.`apellido` AS `comercial`,`c`.`texto` AS `comunicacion`,`p`.`nombre` AS `nombre`,`p`.`apellido` AS `apellido`,`c2`.`texto` AS `comunicacion_contacto` from (((((((((`empresa` `e` left join `comercial` `com1` on((`com1`.`id` = `e`.`comercial_id`))) left join `persona` `per1` on((`per1`.`id` = `com1`.`persona_id`))) left join `empresa_comunicaciones` `ec` on((`ec`.`empresa_id` = `e`.`id`))) left join `comunicacion` `c` on((`c`.`id` = `ec`.`comunicacion_id`))) left join `empresa_actividades` `ea` on((`ea`.`empresa_id` = `e`.`id`))) left join `empresa_actividad_contactos` `eac` on((`eac`.`empresa_actividad_id` = `ea`.`id`))) left join `persona` `p` on((`p`.`id` = `eac`.`persona_id`))) left join `persona_comunicaciones` `pc` on((`pc`.`persona_id` = `p`.`id`))) left join `comunicacion` `c2` on((`c2`.`id` = `pc`.`comunicacion_id`)))
+client_cs_name=utf8mb4
+connection_cl_name=utf8mb4_general_ci
+view_body_utf8=select `e`.`id` AS `empresa_id`,`e`.`nombre` AS `empresa`,`e`.`cuit` AS `cuit`,`per1`.`apellido` AS `comercial`,`c`.`texto` AS `comunicacion`,`p`.`nombre` AS `nombre`,`p`.`apellido` AS `apellido`,`c2`.`texto` AS `comunicacion_contacto` from (((((((((`lubre_dj`.`empresa` `e` left join `lubre_dj`.`comercial` `com1` on(`com1`.`id` = `e`.`comercial_id`)) left join `lubre_dj`.`persona` `per1` on(`per1`.`id` = `com1`.`persona_id`)) left join `lubre_dj`.`empresa_comunicaciones` `ec` on(`ec`.`empresa_id` = `e`.`id`)) left join `lubre_dj`.`comunicacion` `c` on(`c`.`id` = `ec`.`comunicacion_id`)) left join `lubre_dj`.`empresa_actividades` `ea` on(`ea`.`empresa_id` = `e`.`id`)) left join `lubre_dj`.`empresa_actividad_contactos` `eac` on(`eac`.`empresa_actividad_id` = `ea`.`id`)) left join `lubre_dj`.`persona` `p` on(`p`.`id` = `eac`.`persona_id`)) left join `lubre_dj`.`persona_comunicaciones` `pc` on(`pc`.`persona_id` = `p`.`id`)) left join `lubre_dj`.`comunicacion` `c2` on(`c2`.`id` = `pc`.`comunicacion_id`))
+mariadb-version=100504

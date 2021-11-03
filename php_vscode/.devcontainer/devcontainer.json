@@ -1,5 +1,10 @@
 {
-    "name": "Docker php",
-    "dockerFile": "Dockerfile",
-    "appPort": 3000,
+    "name": "VSCode + PHP",
+    "dockerComposeFile": "./docker-compose.yml",
+    "workspaceFolder": "/app",
+    "service": "php",
+    // "appPort": 3000,
+    // "shutdownAction": "stopCompose",
+    // "settings": {
+    // },
 }

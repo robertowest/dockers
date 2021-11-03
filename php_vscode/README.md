@@ -8,15 +8,36 @@ Dentro de nuestra carpeta de proyecto crearemos una carpeta llamada `.devcontain
 ### .devcontainer.json
 ```
 {
-    "name": "Docker php",
-    "dockerFile": "Dockerfile",
+    "name": "VSCode + PHP",
+    "dockerComposeFile": "./docker-compose.yml",
     "appPort": 3000,
+    "service": "php",
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/app",
+    "settings": {
+    },
 }
 ```
 
 ### Dockerfile
 ```
 FROM php:7.4-cli
+WORKDIR /app
+```
+
+### docker-compose
+```
+version: '3'
+
+services: 
+  php:
+    container_name: vscode_app
+    build: .
+    ports: 
+      - 8000:8000
+    volumes: 
+      - ../app:/app
+    tty: true
 ```
 
 Ahora abriremos vscode y nos preguntará que hacer con el docker encontrado, seleccionaremos _reopen in container_ y ya tendremos activo nuestro cliente php

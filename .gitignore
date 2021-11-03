@@ -1,9 +1,7 @@
-/idiomagic/*
-/mariadb/*
-/php/*
-/postgres/*
+xIgnorar/*
 
 */mysql/data/*
+*/postgres/data/*
 
 *.zip
 *.txt

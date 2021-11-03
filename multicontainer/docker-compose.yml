@@ -15,6 +15,8 @@ services:
           # asigne el directorio host./conf.d al directorio contenedor /etc/nginx/conf.d
           - "$PWD/nginx/conf.d:/etc/nginx/conf.d"
           - "$PWD/html:/usr/share/nginx/html"
+        environment:
+            XDEBUG_CONFIG: remote_host=10.10.0.3 remote_port=9003 remote_enable=1
         networks:
           - app_net
 
