@@ -1,0 +1,1 @@
+FROM idiomagic:latest

@@ -1,7 +1,43 @@
-xIgnorar/*
+
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,cakephp3
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,cakephp3
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# Support for Project snippet scope
+!.vscode/*.code-snippets
+
+
+### Idiomagic - CakePHP3 ###
+cakephp/idiomagic/config/app.php
+cakephp/idiomagic/config/.env
+cakephp/idiomagic/logs/*
+cakephp/idiomagic/tmp/*
+cakephp/idiomagic/vendor/*
+
+mariadb/data/*
+postgres/data/*
+webserver/docker/mysql/data/*
 
 */mysql/data/*
-*/postgres/data/*
+*/pgsql/data/*
 
-*.zip
+*.bak
 *.txt
+*.zip
+
+xIgnorar/*
