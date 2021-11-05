@@ -23,11 +23,12 @@
 
 
 ### Idiomagic - CakePHP3 ###
-idiomagic/html/config/app.php
-idiomagic/html/config/.env
-idiomagic/html/logs/*
-idiomagic/html/tmp/*
-idiomagic/html/vendor/*
+# idiomagic/html/config/app.php
+# idiomagic/html/config/.env
+# idiomagic/html/logs/*
+# idiomagic/html/tmp/*
+# idiomagic/html/vendor/*
+idiomagic/html/*
 
 mariadb/data/*
 postgres/data/*

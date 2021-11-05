@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  cakephp:
+    # container_name: cakephp
+    build: .
+    # image: cakephp:3.5
+    volumes:
+      # - ${PWD}/httpd/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ${PWD}/../html:/var/www/html
+    expose:
+      - 80
+    ports:
+      - 80:80
+    links: 
+      - mariadb
+    depends_on:
+      - mariadb
+    environment:
+      - MYSQL_SERVER=mariadb
+      - MYSQL_USER=roberto
+      - MYSQL_PASSWORD=roberto
+
+  mariadb:
+    # container_name: mariadb
+    image: mariadb:10.5 
+    volumes:
+      - ${PWD}/../mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: roberto
+      MYSQL_DATABASE: idiomagic
+      MYSQL_USER: roberto
+      MYSQL_PASSWORD: roberto
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    restart: always
