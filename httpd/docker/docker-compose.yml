@@ -1,0 +1,45 @@
+version: '3.2'
+
+services:
+  mysql:
+    image: mariadb:10.5
+    hostname: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=roberto
+      - MYSQL_USER=roberto
+      - MYSQL_PASSWORD=roberto
+    ports:
+      - 3306:3306
+    networks:
+      - backend
+    volumes:
+      - ${PWD}/docker/mysql/data:/var/lib/mysql
+
+  httpd:
+    image: httpd:2.4
+    hostname: httpd
+    depends_on:
+      - mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - 80:80
+    volumes:
+      - ${PWD}/../www:/var/www/html/
+
+  adminer:
+    image: adminer:4
+    hostname: adminer
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+    networks:
+      - frontend
+      - backend
+
+
+networks:
+  frontend:
+  backend:

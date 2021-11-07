@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,cakephp3
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,cakephp3
 
@@ -22,6 +21,7 @@
 !.vscode/*.code-snippets
 
 
+httpd/www/*
 ### Idiomagic - CakePHP3 ###
 # idiomagic/html/config/app.php
 # idiomagic/html/config/.env
@@ -29,7 +29,6 @@
 # idiomagic/html/tmp/*
 # idiomagic/html/vendor/*
 idiomagic/html/*
-
 mariadb/data/*
 postgres/data/*
 webserver/docker/mysql/data/*

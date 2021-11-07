@@ -1,8 +1,3 @@
-docker-compose up
-docker ps
-docker exec -it docker_cakephp_1 bash
-
-
 # CakePHP
 
 Una vez levantados los contenedores (apache y mysql) y funcionando correctamente, podremos comenzar a trabajar con **CakePHP**.
