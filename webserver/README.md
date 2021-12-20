@@ -71,6 +71,6 @@ Para detener los servicios utilizamos el comando `docker-compose down`. Esto det
 │   ├── mysql
 │   │   └── index.php
 │   └── phpinfo
-│       └── index.php
+│       └── index.php
 └── README.md
 ```

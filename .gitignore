@@ -21,6 +21,7 @@
 !.vscode/*.code-snippets
 
 
+django/proyecto/*
 httpd/www/*
 ### Idiomagic - CakePHP3 ###
 # idiomagic/html/config/app.php

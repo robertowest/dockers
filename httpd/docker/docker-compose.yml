@@ -13,7 +13,7 @@ services:
     networks:
       - backend
     volumes:
-      - ${PWD}/docker/mysql/data:/var/lib/mysql
+      - ${PWD}/mysql/data:/var/lib/mysql
 
   httpd:
     image: httpd:2.4
@@ -26,7 +26,8 @@ services:
     ports:
       - 80:80
     volumes:
-      - ${PWD}/../www:/var/www/html/
+      # /var/www/html/
+      - ${PWD}/../www:/usr/local/apache2/htdocs
 
   adminer:
     image: adminer:4
