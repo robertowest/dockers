@@ -23,6 +23,7 @@
 
 django/proyecto/*
 httpd/www/*
+httpd/docker/mysql/data/*
 ### Idiomagic - CakePHP3 ###
 # idiomagic/html/config/app.php
 # idiomagic/html/config/.env
