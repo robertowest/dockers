@@ -1,0 +1,27 @@
+# descargar imagen
+docker pull mariadb
+
+# crear contenedor (usuario: root/roberto)
+docker run --name mariadb -v /home/roberto/Docker/mariadb/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=roberto -d mariadb:latest
+
+# acceder al docker activo
+docker exec -it mariadb /bin/bash
+
+# iniciar contenedor
+docker start mariadb
+
+# conseguir ip
+docker inspect mariadb|grep IPAddress
+
+# detener contenedor
+docker stop mariadb
+
+# levantar con docker-compose 
+docker-compose up -d
+
+# copiar archivos desde host a contenedor
+docker cp archivo.sql mariadb:/tmp/
+
+# cargar base de datos desde archivo sql
+# crear previmanete la base da datos y cargar los datos
+mysql -u root --password=roberto --database dbNombre < /tmp/archivo.sql
