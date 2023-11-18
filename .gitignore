@@ -26,6 +26,8 @@
 # ignoramos la carpeta data de los contenedores que utilizar mysql y postgres
 */mysql/data/*
 */pgsql/data/*
+# ignoramos código fuente
+httpd/www/*
 # ignoramos el código fuente de Idiomagic
 idiomagic/html/*
 # ignoramos las siguientes carpeta
@@ -34,3 +36,7 @@ xIgnorar/*
 # ignoramos los archivos
 *.bak
 *.zip
+
+
+httpd/docker/mysql/data/*
+webserver/docker/mysql/data/*
