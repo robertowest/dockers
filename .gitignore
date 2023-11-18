@@ -21,25 +21,16 @@
 !.vscode/*.code-snippets
 
 
-django/proyecto/*
-httpd/www/*
-httpd/docker/mysql/data/*
-### Idiomagic - CakePHP3 ###
-# idiomagic/html/config/app.php
-# idiomagic/html/config/.env
-# idiomagic/html/logs/*
-# idiomagic/html/tmp/*
-# idiomagic/html/vendor/*
-idiomagic/html/*
-mariadb/data/*
-postgres/data/*
-webserver/docker/mysql/data/*
-
+# ignoramos la carpeta data de todos los contenedores
+*/data/*
+# ignoramos la carpeta data de los contenedores que utilizar mysql y postgres
 */mysql/data/*
 */pgsql/data/*
-
-*.bak
-*.txt
-*.zip
-
+# ignoramos el código fuente de Idiomagic
+idiomagic/html/*
+# ignoramos las siguientes carpeta
+photoprism/*
 xIgnorar/*
+# ignoramos los archivos
+*.bak
+*.zip

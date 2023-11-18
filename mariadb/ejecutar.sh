@@ -4,7 +4,7 @@
 docker run --name mariadb \
        -v ~/Dockers/mariadb/data:/var/lib/mysql \
        -e MYSQL_ROOT_PASSWORD=roberto \
-       -d mariadb:10.5 \
+       -d mariadb:latest \
        --character-set-server=utf8mb4 \
        --collation-server=utf8mb4_unicode_ci
 

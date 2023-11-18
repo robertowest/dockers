@@ -3,8 +3,28 @@ version: '3'
 services:
   mariadb:
     container_name: mariadb
-    image: mariadb:10.5
+    image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: roberto
     volumes:
       - $PWD/data:/var/lib/mysql
+    networks:
+      - mariadb
+    restart: unless-stopped
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mariadb
+    depends_on:
+      - mariadb
+    networks:
+      - mariadb
+  
+networks:
+  mariadb:
+    driver: bridge
